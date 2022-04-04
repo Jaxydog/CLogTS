@@ -86,5 +86,3 @@ export class Logger {
 	}
 }
 export default Logger
-
-Logger.default.info("test")
