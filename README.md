@@ -9,10 +9,12 @@ A simple, colorful logger for JS/TS projects.
 -   Automatic log file output (can be disabled)
 -   Switching between UTC and local time logging
 
-## How to use
+## Usage
 
 ```ts
-import Logger from "clogts"
+import Logger from "@jaxydog/clogts"
+// or when using "require"
+// const { Logger } = require("@jaxydog/clogts")
 
 const logger = new Logger("my-logger")
 
@@ -24,7 +26,9 @@ logger.error("Error message...")
 ## Settings customization
 
 ```ts
-import Logger from "clogts"
+import Logger from "@jaxydog/clogts"
+// or when using "require"
+// const { Logger } = require("@jaxydog/clogts")
 
 Logger.enableColor = false // default 'true'
 Logger.enableOutput = false // default 'true'

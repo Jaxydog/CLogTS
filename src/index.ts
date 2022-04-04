@@ -54,7 +54,10 @@ export class Logger {
 	}
 
 	private static __strip(text: string) {
-		return text.replaceAll(ANSIRegexp, "").normalize().trim()
+		while (ANSIRegexp.test(text)) {
+			text = text.replace(ANSIRegexp, "")
+		}
+		return text.normalize().trim()
 	}
 	private __store(text: string) {
 		if (!Logger.enableOutput) return
@@ -83,3 +86,5 @@ export class Logger {
 	}
 }
 export default Logger
+
+Logger.default.info("test")

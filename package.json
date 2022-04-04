@@ -1,6 +1,6 @@
 {
   "name": "@jaxydog/clogts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Colorful logger for JS/TS projects",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -17,8 +17,12 @@
   },
   "keywords": [
     "typescript",
-    "javascript",
-    "logging"
+    "logging",
+    "logger",
+    "terminal",
+    "console",
+    "color",
+    "cli"
   ],
   "author": "Jaxydog",
   "license": "MIT",
