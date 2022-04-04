@@ -1,0 +1,31 @@
+{
+  "name": "@jaxydog/clogts",
+  "version": "1.0.0",
+  "description": "Colorful logger for JS/TS projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jaxydog/CLogTS.git"
+  },
+  "keywords": [
+    "typescript",
+    "javascript",
+    "logging"
+  ],
+  "author": "Jaxydog",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Jaxydog/CLogTS/issues"
+  },
+  "homepage": "https://github.com/Jaxydog/CLogTS#readme",
+  "dependencies": {
+    "chalk": "^4.1.2"
+  },
+  "devDependencies": {
+    "typescript": "^4.6.3"
+  }
+}
