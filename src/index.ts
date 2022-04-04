@@ -4,14 +4,14 @@ import FS from "fs"
 const ANSIRegexp = /[\u001b\u009b][[()#;?]*(?:[0-9]{1,4}(?:;[0-9]{0,4})*)?[0-9A-ORZcf-nqry=><]/g
 
 export class Logger {
-	private readonly __infoStamp = Chalk.blueBright`(INFO)`
-	private readonly __warnStamp = Chalk.yellowBright`(WARN)`
-	private readonly __errorStamp = Chalk.redBright`(ERROR)`
+	private static __outputFolder = "logs/"
 	public static readonly default = new Logger("default")
 	public static enableColor = true
 	public static enableOutput = true
 	public static useLocalTime = true
-	public static outputFolder = "logs/"
+	private readonly __infoStamp = Chalk.blueBright`(INFO)`
+	private readonly __warnStamp = Chalk.yellowBright`(WARN)`
+	private readonly __errorStamp = Chalk.redBright`(ERROR)`
 
 	public constructor(public readonly name: string) {}
 
@@ -36,6 +36,13 @@ export class Logger {
 	}
 	private static get __logPath() {
 		return `${this.outputFolder}${this.__logFile}`
+	}
+	public static get outputFolder() {
+		return this.__outputFolder
+	}
+	public static set outputFolder(val) {
+		if (!val.endsWith("/")) val += "/"
+		this.__outputFolder = val
 	}
 	private get __timeStamp() {
 		const join = (v: number[], s: string) => v.map((n) => `${n}`.padStart(2, "0")).join(s)
