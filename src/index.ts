@@ -5,7 +5,8 @@ const ANSIRegexp = /[\u001b\u009b][[()#;?]*(?:[0-9]{1,4}(?:;[0-9]{0,4})*)?[0-9A-
 
 export class Logger {
 	private static __outputFolder = "logs/"
-	public static readonly default = new Logger("default")
+	private static __logFile = this.__newFile()
+	public static default = new Logger("default")
 	public static enableColor = true
 	public static enableOutput = true
 	public static useLocalTime = true
@@ -29,11 +30,6 @@ export class Logger {
 				time: [d.getUTCHours(), d.getUTCMinutes(), d.getUTCSeconds()],
 			}
 	}
-	private static get __logFile() {
-		const pad = (v: number[]) => v.map((n) => `${n}`.padStart(2, "0"))
-		const { date, time } = this.__dateData
-		return `${pad(date).join("-")}_${pad(time).join("-")}.txt`
-	}
 	private static get __logPath() {
 		return `${this.outputFolder}${this.__logFile}`
 	}
@@ -53,6 +49,11 @@ export class Logger {
 		return Chalk.greenBright`(${this.name})`
 	}
 
+	private static __newFile() {
+		const pad = (v: number[]) => v.map((n) => `${n}`.padStart(2, "0"))
+		const { date, time } = this.__dateData
+		return `${pad(date).join("-")}_${pad(time).join("-")}.txt`
+	}
 	private static __strip(text: string) {
 		while (ANSIRegexp.test(text)) {
 			text = text.replace(ANSIRegexp, "")
