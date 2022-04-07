@@ -73,7 +73,7 @@ export class Logger {
 	}
 	private __log(type: "info" | "error" | "warn", text: string) {
 		const msg = `${this.__timeStamp} ${this[`__${type}Stamp`]} ${this.__nameStamp} ${text}`
-		console.log(msg)
+		console.log(Logger.enableColor ? msg : Logger.__strip(msg))
 		this.__store(msg)
 	}
 	public info(...data: unknown[]) {
