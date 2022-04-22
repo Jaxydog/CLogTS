@@ -291,7 +291,7 @@ class Logger {
 		try {
 			const dir = this.__ensureDir()
 			const path = `${Logger.__directory}${Logger.__file}`
-			const data = Colors.strip(log)
+			const data = `${Colors.strip(log)}\n`
 			FS.appendFileSync(path, data, { encoding: "utf8" })
 			return dir
 		} catch (error) {
