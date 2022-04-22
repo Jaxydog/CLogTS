@@ -39,7 +39,7 @@ Colors are saved per-instance and can be given any name.
 The color string can be any `ColorResolvable` string or object; supported types are Hex, HSL, or RGB strings, the plaintext name of the color (such as "red-bright", "yellow-dim" or "purple"), or an object that contains the format's required values.
 
 ```ts
-import { Logger, Prop, Rule, Color } from "@jaxydog/clogts"
+import Logger, { Prop, Rule, Color } from "@jaxydog/clogts"
 
 Logger.default.colors.create("color-1", "white-dim") // plaintext
 Logger.default.colors.create("color-2", "#A0A0A0") // hex
@@ -48,9 +48,7 @@ Logger.default.colors.create("color-3", "rgb(80, 80, 80)") // rgb
 Logger.default.colors.create("color-4", {
 	// rgb object
 	type: "rgb",
-	r: 40,
-	g: 40,
-	b: 40,
+	values: [40, 40, 40],
 })
 ```
 
@@ -61,7 +59,7 @@ Custom properties are glorified string providers that contain color styling rule
 The property constructor also takes a rest parameter of [rules](#instance-rules) that determine the colors of the property.
 
 ```ts
-import { Logger, Prop, Rule, Color } from "@jaxydog/clogts"
+import Logger, { Prop, Rule, Color } from "@jaxydog/clogts"
 
 // adds a blue "i" surrounded by dark gray square brackets
 Logger.default.props.create(
@@ -81,7 +79,7 @@ Rule constructors take a color argument, which can be a string or a [color insta
 Rules added to a specific instance rather than a property only apply to the logged message, ignoring all properties.
 
 ```ts
-import { Logger, Prop, Rule, Color } from "@jaxydog/clogts"
+import Logger, { Prop, Rule, Color } from "@jaxydog/clogts"
 
 new Rule(/success/i, new Color("", "green"))
 Logger.default.rules.create(/\((.*?)\)/i, "color-2")

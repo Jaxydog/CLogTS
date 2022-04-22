@@ -269,8 +269,8 @@ class Logger {
 		for (const { color, name } of this.colors.active) {
 			logger.colors.create(name, color)
 		}
-		for (const { func, level } of this.props.active) {
-			logger.props.create(level, func)
+		for (const { func, level, rules } of this.props.active) {
+			logger.props.create(level, func, ...rules)
 		}
 		for (const { color, match } of this.rules.active) {
 			logger.rules.create(match, color)
